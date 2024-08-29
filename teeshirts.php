@@ -22,19 +22,19 @@
             </nav>
             <nav class="barre-logo">
                 <label for="cc-btn-responsive" class="material-icons burger">menu</label>
-                <a class="logo" href="index.html"><img src="images/logo.png" alt="Accueil"></a>
-                <a class="material-icons panier" href="panier.html">shopping_cart</a>
+                <a class="logo" href="index.php"><img src="images/logo.png" alt="Accueil"></a>
+                <a class="material-icons panier" href="panier.php">shopping_cart</a>
                 <input class="recherche" type="search" name="motscles" placeholder="Recherche">
             </nav>
             <input type="checkbox" id="cc-btn-responsive">
             <nav class="principale">
                 <label for="cc-btn-responsive" class="menu-controle material-icons">close</label>
-                <a href="teeshirts.html" class="actif">Teeshirts</a>
-                <a href="casquettes.html">Casquettes</a>
-                <a href="hoodies.html">Hoodies</a>
+                <a href="teeshirts.php" class="actif">Teeshirts</a>
+                <a href="casquettes.php">Casquettes</a>
+                <a href="hoodies.php">Hoodies</a>
                 <span class="separateur"></span>
-                <a href="aide.html">Aide</a>
-                <a href="apropos.html">À propos de nous</a>
+                <a href="aide.php">Aide</a>
+                <a href="apropos.php">À propos de nous</a>
             </nav>
         </header>
         <main class="page-teeshirts">
@@ -52,17 +52,17 @@
                     <h3>Vos achats</h3>
                     <nav>
                         <a href="faq.com" class="faq">Foire aux questions</a>
-                        <a href="livraison.html" class="livraison">Livraison de votre colis</a>
-                        <a href="conditions.html" class="conditions">Conditions de vente</a>
-                        <a href="confidentialite.html" class="confidentialite">Politique de confidentialité</a>
+                        <a href="livraison.php" class="livraison">Livraison de votre colis</a>
+                        <a href="conditions.php" class="conditions">Conditions de vente</a>
+                        <a href="confidentialite.php" class="confidentialite">Politique de confidentialité</a>
                     </nav>
                 </section>
                 <section class="apropos">
                     <h3>À propos de teeTIM</h3>
                     <nav>
                         <a href="compagnie.com" class="faq">La compagnie</a>
-                        <a href="equipe.html" class="livraison">L'équipe</a>
-                        <a href="emploi.html" class="conditions">Emplois</a>
+                        <a href="equipe.php" class="livraison">L'équipe</a>
+                        <a href="emploi.php" class="conditions">Emplois</a>
                     </nav>
                 </section>
                 <section class="coordonnees">
