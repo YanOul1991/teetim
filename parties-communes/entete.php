@@ -31,7 +31,7 @@
 			<input type="checkbox" id="cc-btn-responsive">
 			<nav class="principale">
 				<label for="cc-btn-responsive" class="menu-controle material-icons">close</label>
-				<a href="teeshirts.php" class="<?php if ($page =="teeshirt") {echo("actif");}?> ">Teeshirts</a>
+				<a href="teeshirts.php" class="<?php if ($page =="teeshirts") {echo("actif");}?> ">Teeshirts</a>
 				<a href="casquettes.php">Casquettes</a>
 				<a href="hoodies.php">Hoodies</a>
 				<span class="separateur"></span>
