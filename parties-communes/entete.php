@@ -1,20 +1,31 @@
 <?php
+	// Determiner le choix de langue de l'utilisateur
+	// print_r($_GET);
+
+	// Langue par default
+	$langue = "fr";
+	// Lanugue specifiee dans l'URL (utilisateur a clique un bouton de choix de langue)
+	if (isset($_GET["lan"])) {
+		$langue = $_GET["lan"];
+	}
+
+	// echo $langue;
+
 	// A) Lire le fichier JSON contenant les textes
 	// Etape 1 :"lire" le fichier "i18n/fr.json"
 	// et placer son contenu a une variable PHP
-	$textesJSON = file_get_contents("i18n/fr.json");
+	$textesJSON = file_get_contents("i18n/".$langue.".json");
 
 	// Etape 2 : Converir le contenu JSON du fichier en variable PHP
 	// pour remettre les textes dans la page web aux bons endroits
 	$textes = json_decode($textesJSON);
 
+	// Raccourcis pour les parties communes
 	$_ent = $textes->entete;
 	$_pp = $textes->pp;
 
-	// print_r($textesConverties);
-	// Imprimer la propriete alt-logo de l'objet correspondant a la propriete entete de cet objet
-	// echo $textesConverties->entete->altLogo;
-	// echo $textesConverties->entete->placeholderRecherche;
+	// Raccourci pour les pages specefiques
+	$_ = $textes->$page;
 ?>
 
 <!DOCTYPE html>
@@ -37,9 +48,8 @@
 	<div class="conteneur">
 		<header>
 			<nav class="barre-haut">
-				<a href="#">en</a>
-				<a href="#">es</a>
-				<a class="actif" href="#">fr</a>
+				<a href="?lan=en">en</a>
+				<a class="actif" href="?lan=fr">fr</a>
 			</nav>
 			<nav class="barre-logo">
 				<label for="cc-btn-responsive" class="material-icons burger">menu</label>

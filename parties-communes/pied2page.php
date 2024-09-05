@@ -11,22 +11,22 @@
                     </nav>
                 </section>
                 <section class="apropos">
-                    <h3>À propos de teeTIM</h3>
+                    <h3><?=$_pp->aProposTitre?></h3>
                     <nav>
-                        <a href="compagnie.com" class="faq">La compagnie</a>
-                        <a href="equipe.php" class="livraison">L'équipe</a>
-                        <a href="emploi.php" class="conditions">Emplois</a>
+                        <a href="compagnie.com" class="faq"><?=$_pp->aProposCompagnie?></a>
+                        <a href="equipe.php" class="livraison"><?=$_pp->aProposEquipe?></a>
+                        <a href="emploi.php" class="conditions"><?=$_pp->aProposEmplois?></a>
                     </nav>
                 </section>
                 <section class="coordonnees">
-                    <h3>Nous joindre</h3>
+                    <h3><?=$_pp->joindreTitre?></h3>
                     <nav>
-                        <span>Sans frais : <b>1 866 888 6666</b></span>
-                        <span>Courriel : aide@teetim.ca</span>
+                        <span><?=$_pp->joindreTelEtiquette?> <b>1 866 888 6666</b></span>
+                        <span><?=$_pp->joindreCourrielEtiquette?> aide@teetim.ca</span>
                     </nav>
                 </section>
             </div>
-            <p class="da">&copy; Tous droits réservés, teeTIM <?php echo date("Y")?></p>
+            <p class="da">&copy; <?=$_pp->droits?> <?php echo date("Y")?></p>
         </footer>
     </div>
     
