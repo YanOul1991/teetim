@@ -4,6 +4,8 @@
 
     // Inclure le code du fichier qui contient tout le haut de la page
     include("parties-communes/entete.php"); 
+
+    // TEST
 ?>
 <main class="page-teeshirts">
     <article class="amorce">
