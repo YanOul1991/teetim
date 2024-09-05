@@ -9,7 +9,7 @@
 	$textes = json_decode($textesJSON);
 
 	$_ent = $textes->entete;
-	$pp = $textes->pp;
+	$_pp = $textes->pp;
 
 	// print_r($textesConverties);
 	// Imprimer la propriete alt-logo de l'objet correspondant a la propriete entete de cet objet

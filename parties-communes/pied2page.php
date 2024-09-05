@@ -2,12 +2,12 @@
             <h2>teeTIM</h2>
             <div class="contenu">
                 <section class="achats">
-                    <h3>Vos achats</h3>
+                    <h3><?=$_pp->achatsTitre?></h3>
                     <nav>
-                        <a href="faq.com" class="faq">Foire aux questions</a>
-                        <a href="livraison.php" class="livraison">Livraison de votre colis</a>
-                        <a href="conditions.php" class="conditions">Conditions de vente</a>
-                        <a href="confidentialite.php" class="confidentialite">Politique de confidentialité</a>
+                        <a href="faq.com" class="faq"><?=$_pp->navAchatsFaq?></a>
+                        <a href="livraison.php" class="livraison"><?=$_pp->navAchatsLivraison?></a>
+                        <a href="conditions.php" class="conditions"><?=$_pp->navAchatsConditions?></a>
+                        <a href="confidentialite.php" class="confidentialite"><?=$_pp->navAchatsConfidentialite?></a>
                     </nav>
                 </section>
                 <section class="apropos">

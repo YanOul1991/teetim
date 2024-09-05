@@ -9,7 +9,11 @@
         "menuNous": "À propos de nous"
     },
     "pp": {
-
+        "achatsTitre": "Vos achats",
+        "navAchatsFaq": "Foire aux questions",
+        "navAchatsLivraison": "Livraison de votre colis",
+        "navAchatsConditions": "Conditions de vente",
+        "navAchatsConfidentialite": "Politique de confidentialité"
     },
     "acceuil" :{
 
