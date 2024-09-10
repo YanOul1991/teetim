@@ -1,18 +1,47 @@
 <?php
 	// Determiner le choix de langue de l'utilisateur
-	// print_r($_GET);
 
-	// Langue par default
-	$langue = "fr";
-	// Lanugue specifiee dans l'URL (utilisateur a clique un bouton de choix de langue)
-	if (isset($_GET["lan"])) {
-		$langue = $_GET["lan"];
+	// Test :cookie jar
+	// print_r($_COOKIE);
+
+	// Creer un tableau des langues disponibles
+	$languesDispo = [];
+	// Remplir le tableau avec les codes obtenus des noms des fichiers JSON 
+	// presents dans le dossier i18n
+	$contenui18n = scandir("i18n");
+
+	for ($i=0; $i < count($contenui18n); $i++) { 
+		$fichier = $contenui18n[$i];
+
+		// Si le fichier n'est pas "." ou ".."
+		if ($fichier != '.' && $fichier != '..') {
+
+			$languesDispo[] = substr($fichier, 0, 2);
+		}
 	}
 
-	// echo $langue;
+	// 1. Langue par default
+	$langue = "fr";
+
+	// 2. Langue memorise dans un temoin HTTP
+	// Si le cookie "choixLangue" a une valeur
+	if (isset($_COOKIE["choixLangue"])) {
+		// Assigne la valeur de ce cookie a la variable langue
+		// Sinon "fr" est la valeur de langue par defaut
+		$langue = $_COOKIE["choixLangue"];
+	}
+
+	// 3. Lanugue specifiee dans l'URL (utilisateur a clique un bouton de choix de langue)
+	if (isset($_GET["lan"])) {
+		$langue = $_GET["lan"];
+
+		// Memorise le choix de langue
+		// Donc :stocker la valeur du code de langue dans un temoin HTTP
+		setcookie("choixLangue", $langue, time() + 60*60*24*30);
+	}
 
 	// A) Lire le fichier JSON contenant les textes
-	// Etape 1 :"lire" le fichier "i18n/fr.json"
+	// Etape 1 :"lire" le fichier "i18n/lan.json"
 	// et placer son contenu a une variable PHP
 	$textesJSON = file_get_contents("i18n/".$langue.".json");
 
@@ -48,8 +77,18 @@
 	<div class="conteneur">
 		<header>
 			<nav class="barre-haut">
-				<a href="?lan=en">en</a>
-				<a class="actif" href="?lan=fr">fr</a>
+				<!-- 
+					Generer un bouton (lien HTML) pour chaque code de langue 
+					dans le tableau $langueDispo 
+				-->
+				<a 
+					
+					class="<?php if($langue == "fr") {echo "actif";}?>" 
+					href="?lan=fr"
+				>
+					fr
+
+				</a>
 			</nav>
 			<nav class="barre-logo">
 				<label for="cc-btn-responsive" class="material-icons burger">menu</label>
