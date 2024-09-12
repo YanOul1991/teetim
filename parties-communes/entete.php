@@ -1,22 +1,16 @@
 <?php
 	// Determiner le choix de langue de l'utilisateur
-
-	// Test :cookie jar
-	// print_r($_COOKIE);
-
+	
 	// Creer un tableau des langues disponibles
 	$languesDispo = [];
 	// Remplir le tableau avec les codes obtenus des noms des fichiers JSON 
 	// presents dans le dossier i18n
 	$contenui18n = scandir("i18n");
 
-	for ($i=0; $i < count($contenui18n); $i++) { 
-		$fichier = $contenui18n[$i];
+	foreach ($contenui18n as $nomFichier) {
 
-		// Si le fichier n'est pas "." ou ".."
-		if ($fichier != '.' && $fichier != '..') {
-
-			$languesDispo[] = substr($fichier, 0, 2);
+		if ($nomFichier != '.' && $nomFichier != '..') {
+			$languesDispo[] = substr($nomFichier, 0 ,2);
 		}
 	}
 
@@ -25,14 +19,17 @@
 
 	// 2. Langue memorise dans un temoin HTTP
 	// Si le cookie "choixLangue" a une valeur
-	if (isset($_COOKIE["choixLangue"])) {
+	// *SUSCEPTIBLE D'INJECTION*
+	// *PAS CONFIANCE A UTILISATEUR*
+	if (isset($_COOKIE["choixLangue"]) && in_array($_COOKIE["choixLangue"], $languesDispo)) {
 		// Assigne la valeur de ce cookie a la variable langue
 		// Sinon "fr" est la valeur de langue par defaut
 		$langue = $_COOKIE["choixLangue"];
 	}
 
 	// 3. Lanugue specifiee dans l'URL (utilisateur a clique un bouton de choix de langue)
-	if (isset($_GET["lan"])) {
+	// Fait pas confience aux valeur venant de le UI
+	if (isset($_GET["lan"]) && in_array($_GET["lan"], $languesDispo)) {
 		$langue = $_GET["lan"];
 
 		// Memorise le choix de langue
@@ -58,7 +55,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="<?=$langue?>" dir="">
 
 <head>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,28 +64,25 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>teeTIM // fibre naturelle ... conception artificielle</title>
-	<meta name="description" content="Page d'accueil du concepteur de vêtements 100% fait au Québec, conçus par les étudiants du TIM à l'aide de designs produits par intelligence artificielle, et fabriqués avec des fibres 100% naturelles et biologiques.">
+	<title><?=$_->metaTitre?></title>
+	<meta name="description" content="<?=$_->metaDescr?>">
 	<link rel="stylesheet" href="css/styles.css">
-	<link rel="icon" type="image/png" href="images/favicon.png" />
+	<link rel="icon" type="image/png" href="images/favicon.png"/>
 </head>
 
 <body>
 	<div class="conteneur">
 		<header>
 			<nav class="barre-haut">
-				<!-- 
-					Generer un bouton (lien HTML) pour chaque code de langue 
-					dans le tableau $langueDispo 
-				-->
-				<a 
-					
-					class="<?php if($langue == "fr") {echo "actif";}?>" 
-					href="?lan=fr"
-				>
-					fr
+				<!-- Generer un bouton (lien HTML) pour chaque code de langue dans le tableau $langueDispo -->
+				<?php foreach ($languesDispo as $codeLangue) : ?>
+					<a 
+						class="<?php if($codeLangue == $langue) {echo 'actif';}?>" 
+						href="?lan=<?=$codeLangue?>" 
+						title="francais"><?=$codeLangue?>
+					</a>
+				<?php endforeach ?> 
 
-				</a>
 			</nav>
 			<nav class="barre-logo">
 				<label for="cc-btn-responsive" class="material-icons burger">menu</label>

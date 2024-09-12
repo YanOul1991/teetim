@@ -24,6 +24,8 @@
         "droits": "Tous droits réservés, teeTIM"
     },
     "acceuil": {
+        "metaTitre": "teeTIM // fibre naturelle ... conception artificielle",
+        "metaDescr": "Page d'accueil du concepteur de vêtements 100% fait au Québec, conçus par les étudiants du TIM à l'aide de designs produits par intelligence artificielle, et fabriqués avec des fibres 100% naturelles et biologiques.",
         "amorceTitre": "Teeshirts, hoodies, et casquettes fabriqués au Québec 💯",
         "amorceSousTitre": "Conçus au TIM avec ❤️",
         "amorceSousTitre2": "avec un p'tit peu d'aide de DALL-E 😉",
@@ -31,6 +33,8 @@
         "para2": "Teeshirt en V, col rond, ample ou ajusté, à manches courtes ou à manches longues pour les plus frileux, uni ou à motifs pour styliser une tenue… Le teeshirt est disponible dans une variété de couleurs, de styles et de motifs."
     },
     "teeshirts": {
+        "metaTitre": "teeTIM // teeshirts comfortables fait au Québec de qualité supérieure...",
+        "metaDescr": "teeshirts wekf wkef  ewfk, .................",
         "titrePage": "Nos teeshirts",
         "aVenir": "À venir..."
     }
